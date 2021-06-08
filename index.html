@@ -6,67 +6,71 @@
   <meta http-equiv="X-UA-Compatible" content="IE=7">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harrison Dsouza - Personal Website</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Open+Sans&family=Staatliches&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300&family=Staatliches&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+
   <link rel="stylesheet" href="css/style.css">
 
   <meta name="author" content="Harrison Daniel Dsouza">
   <meta name="description" content="Hi there, I'm Harrison Dsouza and this is my personal website. I'm a curious little guy who just loves exploring and learning new things.">
   <meta name=”robots” content="index, follow">
-  <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon" id="favicon">
   
 
   <script src="https://kit.fontawesome.com/0333ecff8b.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top py-3">
-    <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo" srcset="images/logo.svg"></a>
-    <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
-      data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <div class="animated-icon1"><span></span><span></span><span></span></div>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto ml-auto nav-fill">
-        <li class="nav-item active">
-          <a class="nav-link" href="#intro">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#hobbies">Hobbies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#feedback">Feedback</a>
-        </li>
 
-      </ul>
-      <ul class="navbar-nav nav-flex-icons nav-pills nav-fill ">
+  <nav class="navbar navbar-expand-md  bg-dark fixed-top py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo" srcset="images/logo.svg"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon1"><span></span><span></span><span></span></div>
+      </button>
 
-        <li class="nav-social nav-item">
-          <a class="nav-link" href="https://www.instagram.com/harrison_dsouza76/"><i class="fab fa-instagram"></i></a>
-        </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      </ul>
+
+        <ul class="navbar-nav nav-fills">
+          <li class="nav-item">
+            <a class="nav-link" href="#intro">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hobbies">Hobbies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#feedback">Feedback</a>
+          </li>
+
+
+      </div>
     </div>
   </nav>
 
 
+
+
+
   <section id="intro">
     <div class="container-fluid">
+      
       <div class="row">
         <div class="intro-content col-12 text-center">
-          <h3 class="title-sub" data-aos="zoom-in" data-aos-duration="900">Hey, I'm</h3>
-          <h1 class="title-main" data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-          data-aos-duration="1500" >Harrison</h1>
+          <h3 class="title-sub">Hey<span></span></h3>
+          <h1 class="title-main">Harrison</h1>
         </div>
       </div>
       <div class="row">
@@ -77,11 +81,13 @@
     </div>
   </section>
 
+
+
   <section id="about" class="about-section">
     <div class=" header col-md-10 col-lg-6 text-center">
       <h1 class="section-title">About</h1>
     </div>
-    <div class="container rounded" data-aos="fade-up"
+    <div class="container" data-aos="fade-up"
     data-aos-anchor-placement="top-bottom" data-aos-offset="150"
     data-aos-duration="900" data-aos-easing="linear">
       <div class="row">
@@ -92,10 +98,10 @@
           </h2>
           <div class="about-description py-4 w-100">
             <p class="para-1">
-              I am a teenager who loves exploring and learning new things. I am extremely curious about so many things and I just love being this way because curiosity has helped me build up my interests in various things. Pretty much anything that sounds fun to try out and learn, I add it to my bucket list. This way I feel I've done a pretty good job in developing my skills and I'll try to keep doing so.
+              I'm a teenager who enjoys exploring and learning new things. I'm quite curious about many things and I like it since it has helped me develop my interests in a variety of areas. Almost anything that seems exciting to try out and learn, I put it to my bucket list. This way I feel I've done a decent job in honing my skills and I'll continue doing so.
             </p>
             <p class="para-2">
-               Well, I guess no one can really stay focused all the time. Enjoying your life is equally important. On that note, I also spend some free time watching movies, listening to songs and having fun with my family and friends. Oh yeah, I do love drinking coffee and pizzas are my favourite.
+              Well, I suppose no one can truly remain concentrated all the time. Enjoying your life is equally vital. On that note, I also spend some leisure time watching movies, listening to music and having fun with my family and friends. Oh yes, I do adore drinking coffee and pizzas are my favourite.
             </p>
             
           </div>
@@ -113,7 +119,7 @@
     <div class="header col-md-8 col-lg-6 text-center">
 
       <h1 class="section-title">My <span>Hobbies</span></h2>
-        <h6 class="section-description">Here are a few of the things that I love doing.</h6>
+      <h6 class="section-description">Here are a few of the things that I love doing.</h6>
 
     </div>
 
@@ -123,62 +129,52 @@
     <div class="container">
       <div class="row row-equal-height">
 
-        <div class="column col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="900">
+        <div class="column col-md-6 col-lg-4 col-xxl-3" data-aos="zoom-in" data-aos-duration="900">
           <div class="hobbies-content">
             <div class="part-1">
               <i class="fas fa-code"></i>
               <h4 class="hobby-name">Programming</h3>
             </div>
             <div class="part-2">
-              <p class="hobby-description">Programming is great hobby. I was first introduced to coding in school and since then, I've been exploring this new world, which I really enjoy doing.</p>
+              <p class="hobby-description">Programming is a great hobby. I was first exposed to coding in school, and I've been exploring this new world ever since, which I really enjoy.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="column col-md-6 col-lg-4 col-xxl-3 " data-aos="zoom-in" data-aos-duration="900">
+          <div class="hobbies-content">
+            <div class="part-1">
+              <i class="fas fa-atom"></i>
+              <h4 class="hobby-name">Exploring Physics</h3>
+            </div>
+            <div class="part-2">
+              <p class="hobby-description">Ahh! To me, this is more than simply a hobby. Physics is something that my curiosity has driven me into. It's a tool for understanding how the universe works, and it really fascinates me.</p>
             </div>
           </div>
         </div>
 
-        <div class="column col-md-6 col-lg-4"data-aos="zoom-in" data-aos-duration="900">
+        
+        <div class="column col-md-6 col-lg-4 col-xxl-3"data-aos="zoom-in" data-aos-duration="900">
           <div class="hobbies-content">
             <div class="part-1">
               <i class="fas fa-camera-retro"></i>
               <h4 class="hobby-name">Photography</h3>
             </div>
             <div class="part-2">
-              <p class="hobby-description">Cameras are amazing things to play around with. That's why this is one of my hobbies. I love capturing great moments & sceneries and photography has helped me see the world through new perspectives </p>
+              <p class="hobby-description">Cameras are fantastic things to mess around with. That's why this is one of my passions. I like capturing wonderful moments & landscapes and photography has let me view the world from fresh angles.</p>
             </div>
           </div>
         </div>
 
-        <div class="column col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="900">
-          <div class="hobbies-content">
-            <div class="part-1">
-              <i class="fas fa-splotch"></i>
-              <h4 class="hobby-name">Graphic Designing</h3>
-            </div>
-            <div class="part-2">
-              <p class="hobby-description">Honestly, I dont do much of graphic designing but this yet another skill that i have learnt (for personal projects) and hope to improve on. It's fun and it helps on with bettering my creativity.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="column col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="900">
-          <div class="hobbies-content">
-            <div class="part-1">
-              <i class="fas fa-atom"></i>
-              <h4 class="hobby-name">Explore Physics</h3>
-            </div>
-            <div class="part-2">
-              <p class="hobby-description">Ahh! This is more than a just a hobby to me. Physics is something that my curiosity has driven me into. It is a tool to understand how the world really works and I'm really fascinated by it.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column col-md-6 col-lg-4" data-aos="zoom-in" data-aos-duration="900">
+        <div class="column col-md-6 col-lg-4 col-xxl-3" data-aos="zoom-in" data-aos-duration="900">
           <div class="hobbies-content">
             <div class="part-1">
               <i class="fas fa-futbol"></i>
-              <h4 class="hobby-name">Play soccer</h3>
+              <h4 class="hobby-name">Playing Football</h3>
             </div>
             <div class="part-2">
-              <p class="hobby-description">Yeah, I do a bit of sports as well. Soccer or Football, whatever you would like to call it, is a great sport and one my favourites.</p>
+              <p class="hobby-description">Yeah, I engage in sports as well. Football or soccer, whichever you would like to call it, is a great sport and one my favourites.</p>
             </div>
           </div>
         </div>
@@ -191,14 +187,15 @@
 
   </section>
 
-  <section id="feedback" class="feedback-section">
+  <section id="feedback" class="feedback-section container">
+    <div class="row">
     <div class="header col-md-10 col-lg-6 text-center">
       <h1 class="section-title">Say <span>Hi!</span></h2>
         <p class="section-description">Suggestions? Feedbacks? Or just wanna talk? It could be anything. Just write them down and send it to me. I would love to read them...</p>
     </div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="feedback-content col-lg-6 col-md-9 text-center">
+  </div>
+      <div class="row justify-content-center text-center">
+        <div class="feedback-content  col-md-9 col-lg-6  ">
           <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
             <input type="hidden" name="accessKey" value="f893cbf2-aeb8-4b11-b7c3-d021b7b8583b">
             <div class="form-input">
@@ -207,7 +204,7 @@
               <input type="email" name="email" class="form-control" placeholder="Your email" required>
               <textarea name="message" id="" class="form-control" rows="5" placeholder="Your feedback" required></textarea>
               <input type="text" name="honeypot" style="display: none;">
-              <button type="submit" class="btn">
+              <button type="submit" class="submit-btn">
                 <span>
                   <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
                   Send
@@ -217,8 +214,44 @@
           </form>
         </div>
       </div>
+    </section>
+
+    <!-- form submission result modals -->
+
+    <div id="success" class="formSubmit-modal">
+      
+          <div class="card">
+              <div class="card-img"><i class="fas fa-thumbs-up"></i></div>
+              <div class="card-title">
+                  <p>Successful!!</p>
+              </div>
+              <div class="card-text">
+                  <p>Thank you for your message</p>
+              </div> 
+              <button class="btn">OK</button>
+          </div>
+       
     </div>
-  </section>
+
+    <div id="error" class="formSubmit-modal">
+      
+          <div class="card">
+              <div class="card-img"><i class="far fa-frown"></i></div>
+              <div class="card-title">
+                  <p>Uh-Oh!!</p>
+              </div>
+              <div class="card-text">
+                  <p>Something seems to have gone wrong.<br>Please try again later.</p>
+              </div> 
+              <button class="btn">OK</button>
+          </div>
+       
+    </div>
+
+    <!------------->
+
+
+    
 
   <footer id="footer">
     <div class="footer-content container">
@@ -228,7 +261,7 @@
       </div>
 
       <div class="copyright-content text-center">
-        <h6>Copyright © 2020 Harrison Dsouza</h6>
+        <h6>Copyright © 2020-21 Harrison Dsouza</h6>
       </div>
 
 
@@ -245,17 +278,12 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/scripts.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
 
 </body>
 

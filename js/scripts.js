@@ -1,63 +1,85 @@
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+history.scrollRestoration = "manual";
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+window.addEventListener("load", () => {
+  setTimeout(function () {
+    $("html, body").css("overflow", "visible");
+  }, 3700);
+});
 
-      // Store hash
-      var hash = this.hash;
+$(document).ready(function () {
+  const sections = document.querySelectorAll("section[id]");
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 500, function(){
+  window.addEventListener("scroll", navHighlighter);
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
+  function navHighlighter() {
+    let scrollY = window.pageYOffset;
+
+    sections.forEach((current) => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 50;
+      sectionId = current.getAttribute("id");
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        document
+          .querySelector(".navbar .navbar-nav a[href*=" + sectionId + "]")
+          .parentElement.classList.add("current");
+      } else {
+        document
+          .querySelector(".navbar .navbar-nav a[href*=" + sectionId + "]")
+          .parentElement.classList.remove("current");
+      }
+    });
+  }
+
+  // Hamburger toggler
+  $(".navbar-toggler").on("click", function () {
+    $(".animated-icon1").toggleClass("open");
+  });
+
+  // Navbar Bg change on scroll
+  $(window).scroll(function () {
+    $("nav").toggleClass("scrolled", $(this).scrollTop() > 56);
+  });
+
+  $(".navbar-toggler").click(function () {
+    if (!$(".navbar-collapse").hasClass("show")) {
+      $(".navbar").addClass("scrolled");
+    } else if ($(window).scrollTop() < 56) {
+      $(".navbar").removeClass("scrolled");
+    } else {
+    }
   });
 });
 
+// Form
 
-
-$(window).scroll(function () {
-  $('nav').toggleClass('scrolled', $(this).scrollTop() > 56)
-})
-
-$(".navbar-toggler").click(function () {
-  if (!$(".navbar-collapse").hasClass("show")) {
-    $(".navbar").addClass('scrolled');
-  } else if ($(window).scrollTop() < 56) {
-    $(".navbar").removeClass("scrolled");
-  } else {
-  }
-})
-
-$('.first-button').on('click', function () {
-
-  $('.animated-icon1').toggleClass('open');
-})
-
-// find elements
-$("#staticform").submit(function(event) {
+let successModal = document.querySelector("#success.formSubmit-modal");
+let errorModal = document.querySelector("#error.formSubmit-modal");
+let successModalCloseBtn = document.querySelector(
+  "#success.formSubmit-modal .card .btn"
+);
+let errorModalCloseBtn = document.querySelector(
+  "#error.formSubmit-modal .card .btn"
+);
+$("#staticform").submit(function (event) {
   event.preventDefault();
   $.ajax({
-    url: 'https://api.staticforms.xyz/submit', // url where to submit the request
+    url: "https://api.staticforms.xyz/submit", // url where to submit the request
     type: "POST", // type of action POST || GET
-    dataType: 'json', // data type
+    dataType: "json", // data type
     data: $("#staticform").serialize(), // post data || get data
-    success: function(result) {
-      // you can see the result from the console
-      // tab of the developer tools
-      alert("Your message was successfully sent...");
+    success: function (result) {
+      successModal.classList.add("modal-active");
     },
-    error: function(xhr, resp, text) {
-      alert(xhr, resp, text);
-    }
-  })
+    error: function (xhr, resp, text) {
+      errorModal.classList.add("modal-active");
+    },
+  });
+});
+
+successModalCloseBtn.addEventListener("click", () => {
+  successModal.classList.remove("modal-active");
+});
+errorModalCloseBtn.addEventListener("click", () => {
+  errorModal.classList.remove("modal-active");
 });
