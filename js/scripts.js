@@ -2,12 +2,14 @@ history.scrollRestoration = "manual";
 
 window.addEventListener("load", () => {
   setTimeout(function () {
-    $("html, body").css("overflow", "visible");
+    document.documentElement.style.overflow = "visible";
+    document.body.style.overflow = "visible";
   }, 3700);
 });
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".navbar .navbar-nav a");
 
   window.addEventListener("scroll", navHighlighter);
 
@@ -17,69 +19,84 @@ $(document).ready(function () {
     sections.forEach((current) => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 50;
-      sectionId = current.getAttribute("id");
+      const sectionId = current.getAttribute("id");
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document
-          .querySelector(".navbar .navbar-nav a[href*=" + sectionId + "]")
-          .parentElement.classList.add("current");
+        document.querySelector(`.navbar .navbar-nav a[href*="${sectionId}"]`).parentElement.classList.add("current");
       } else {
-        document
-          .querySelector(".navbar .navbar-nav a[href*=" + sectionId + "]")
-          .parentElement.classList.remove("current");
+        document.querySelector(`.navbar .navbar-nav a[href*="${sectionId}"]`).parentElement.classList.remove("current");
       }
     });
   }
 
   // Hamburger toggler
-  $(".navbar-toggler").on("click", function () {
-    $(".animated-icon1").toggleClass("open");
+  document.querySelector(".navbar-toggler").addEventListener("click", function () {
+    document.querySelector(".animated-icon1").classList.toggle("open");
   });
 
   // Navbar Bg change on scroll
-  $(window).scroll(function () {
-    $("nav").toggleClass("scrolled", $(this).scrollTop() > 56);
+  window.addEventListener("scroll", function () {
+    document.querySelector("nav").classList.toggle("scrolled", window.scrollY > 56);
   });
 
-  $(".navbar-toggler").click(function () {
-    if (!$(".navbar-collapse").hasClass("show")) {
-      $(".navbar").addClass("scrolled");
-    } else if ($(window).scrollTop() < 56) {
-      $(".navbar").removeClass("scrolled");
-    } else {
+  document.querySelector(".navbar-toggler").addEventListener("click", function () {
+    if (!document.querySelector(".navbar-collapse").classList.contains("show")) {
+      document.querySelector(".navbar").classList.add("scrolled");
+    } else if (window.scrollY < 56) {
+      document.querySelector(".navbar").classList.remove("scrolled");
     }
   });
 });
 
+
 // Form
 
-let successModal = document.querySelector("#success.formSubmit-modal");
-let errorModal = document.querySelector("#error.formSubmit-modal");
-let successModalCloseBtn = document.querySelector(
-  "#success.formSubmit-modal .card .btn"
-);
-let errorModalCloseBtn = document.querySelector(
-  "#error.formSubmit-modal .card .btn"
-);
-$("#staticform").submit(function (event) {
-  event.preventDefault();
-  $.ajax({
-    url: "https://api.staticforms.xyz/submit", // url where to submit the request
-    type: "POST", // type of action POST || GET
-    dataType: "json", // data type
-    data: $("#staticform").serialize(), // post data || get data
-    success: function (result) {
-      successModal.classList.add("modal-active");
-    },
-    error: function (xhr, resp, text) {
-      errorModal.classList.add("modal-active");
-    },
-  });
+const successModal = document.querySelector("#success.formSubmit-modal");
+const errorModal = document.querySelector("#error.formSubmit-modal");
+const successModalCloseBtn = document.querySelector("#success.formSubmit-modal .card .btn");
+const errorModalCloseBtn = document.querySelector("#error.formSubmit-modal .card .btn");
+const form = document.getElementById('web3form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let jsonResponse = await response.json();
+        if (response.status === 200) {
+            console.log("Success:", jsonResponse);
+            successModal.classList.add("modal-active");
+        } else {
+            console.log("Error response:", response.status, jsonResponse);
+            errorModal.classList.add("modal-active");
+        }
+    })
+    .catch(error => {
+        console.log("Fetch error:", error);
+        errorModal.classList.add("modal-active");
+    })
+    .then(function() {
+        form.reset();
+    });
 });
 
 successModalCloseBtn.addEventListener("click", () => {
-  successModal.classList.remove("modal-active");
+    successModal.classList.remove("modal-active");
 });
+
 errorModalCloseBtn.addEventListener("click", () => {
-  errorModal.classList.remove("modal-active");
+    errorModal.classList.remove("modal-active");
 });
+
+
+
